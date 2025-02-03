@@ -1,6 +1,6 @@
 export interface Superhero {
-    name: string;
-    superpower: string;
-    humilityScore: number;
-  }
-  
+  id: number;
+  name: string;
+  superpower: string;
+  humilityScore: number;
+}
