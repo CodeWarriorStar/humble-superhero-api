@@ -1,24 +1,21 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react';
+import SuperheroForm from './components/SuperheroForm';
+import SuperheroList from './components/SuperheroList';
 
-function App() {
+const App: React.FC = () => {
+  const [refreshFlag, setRefreshFlag] = useState<boolean>(false);
+
+  const handleSuperheroAdded = () => {
+    setRefreshFlag((prev) => !prev);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Humble Superhero API</h1>
+      <SuperheroForm onSuperheroAdded={handleSuperheroAdded} />
+      <SuperheroList refreshFlag={refreshFlag} />
     </div>
   );
-}
+};
 
 export default App;
